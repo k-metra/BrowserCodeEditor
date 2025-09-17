@@ -92,7 +92,6 @@ const showPane = (name) => {
         const ed = editors[name];
 
         if (ed && ed.resize) {
-            console.log("Editor found");
             ed.resize(true);
             ed.focus();
         }
