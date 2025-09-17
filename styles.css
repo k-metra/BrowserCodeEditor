@@ -50,8 +50,8 @@ header {
 }
 
 .brand .logo {
-    inline-size: 80px;
-    block-size: 80px;
+    inline-size: 90px;
+    block-size: 90px;
     background: url("https://lyceumalabang.edu.ph/wp-content/uploads/2025/08/loalogo.png")
     center / cover no-repeat;
     
