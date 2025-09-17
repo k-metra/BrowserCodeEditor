@@ -59,7 +59,6 @@ header {
 
 .title {
     font-size: clamp(18px, 2vw, 22px);
-    color: rgb(0,0,0);
 }
 
 main {
