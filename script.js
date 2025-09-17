@@ -212,7 +212,7 @@ const saveProject = () => {
         a.href = URL.createObjectURL(blob);
         a.download = "ccs-academy-web.json";
         a.click();
-        log("Saved locally and downloaded project.")
+        log("Saved locally and downloaded project.");
     } catch (Exception) {
         console.error(Exception);
     }
@@ -220,7 +220,7 @@ const saveProject = () => {
 
 $("#saveBtn")?.addEventListener("click", saveProject);
 $("#loadBtn")?.addEventListener("click", () => $("#openFile").click());
-$("openFile")?.addEventListener("change", async (e) => {
+$("#openFile")?.addEventListener("change", async (e) => {
     const file = e.target.files?.[0];
 
     if (!file) return;
