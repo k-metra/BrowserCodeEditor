@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang=en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>In-Browser Code Editor</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="container row">
+                <div class="brand">
+                    <div class="logo"></div>
+                    <div class="title">In-Browser Code Editor</div>
+                </div>
+
+                <div class="row">
+                    <button class="btn secondary" id="saveBtn" title="Save work locally"><span>Save</span></button>
+                    <button class="btn secondary" id="loadBtn" title="Load your work"><span>Load</span></button>
+                    <input id="openFile" type="file" accept="application/json" hidden>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <aside class="card panel stack">
+                <h2>Task / Assignment</h2>
+
+                <textarea id="assignment" class="text" placeholder="Task description..."></textarea>
+
+                <div class="stack">
+                    <label for="testArea">Validation tests (JavaScript only - optional)</label>
+                    <textarea id="testArea" class="text" placeholder="Tests..."></textarea>
+                </div>
+
+                <div class="muted">
+                    Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to save your work,<br><br>
+                    <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to run.
+                </div>
+            </aside>
+
+            <section class="stack" id="web-only">
+                <div class="stack panel card" id="webEditors">
+                    <div class="row">
+                        <h2>HTML / CSS / JavaScript</h2>
+                        <div class="row">
+                            <button class="btn ok" id="runWeb">Run</button>
+                            <button class="btn secondary" id="openPreview">Open preview in a new window.</button>
+                        </div>
+                    </div>
+
+                    <div class="tabs" id="webTabs" role="tablist" aria-label="web editors">
+                        <button class="tab active" role="tab" aria-selected="true" tabindex="0" data-pane="html">HTML</button>
+                        <button class="tab" role="tab" aria-selected="false" tabindex="-1" data-pane="css">CSS</button>
+                        <button class="tab" role="tab" aria-selected="false" tabindex="-1" data-pane="js">JavaScript</button>
+                    </div>
+
+                    <div class="editor-wrap" data-pane="html">
+                        <div class="editor" id="ed_html"></div>
+                    </div>
+
+                    <div class="editor-wrap" data-pane="css" hidden>
+                        <div class="editor" id="ed_css"></div>
+                    </div>
+
+                    <div class="editor-wrap" data-pane="js" hidden>
+                        <div class="editor" id="ed_js"></div>
+                    </div>
+
+                    <div class="stack">
+                        <h3>Preview</h3>
+                        <iframe id="preview" class="preview" sandbox="allow-scripts allow-same-origin allow-modals"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="card panel stack">
+                <h2>Output</h2>
+                <div class="out" id="output" aria-live="polite"></div>
+                <div class="row">
+                    <button class="btn warn" id="runTests">Run With Tests</button>
+                    <button class="btn secondary" id="clearOut">Clear log</button>
+                </div>
+
+                <h3>Notes</h3>
+                <ul class="muted">
+                    <li>Everything runs inside the browser in a sandbox.</li>
+                    <li>You can save the work as a JSON file and restore it the same way.</li>
+                </ul>
+            </aside>
+        </main>
+
+        <div class="footer">2025&copy; Lyceum BSIT 11M1 - All rights reserved.</div>
+    </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.3/ace.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="script.js"></script>
+
